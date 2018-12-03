@@ -1,6 +1,8 @@
 const express = require('express');
+const bodyParser = require('body-parser')
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: true }))
 
 const AuthorisationMiddleware = (req, res, next) => {
 
@@ -14,6 +16,10 @@ const AuthorisationMiddleware = (req, res, next) => {
 
 const requestLogger = (req, res, next) => {
     
+    if(req.method === "POST") {
+        return next()
+    }
+
     const method = req.method
     const path = req.path
     const query = req.query
@@ -38,7 +44,15 @@ const requestLogger = (req, res, next) => {
 app.use([requestLogger, AuthorisationMiddleware ]);
 
 app.get('/home' , (request, response) => {
+    console.log(request.body)
     response.status(200).send('Hello world')
+})
+
+app.post('/home' , (request, response) => {
+    console.log(request.body)
+    response.status(200).send('Hello world')
+
+    
 })
 
 app.listen(3000, () => {

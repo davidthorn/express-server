@@ -103,3 +103,22 @@ const AuthorisationMiddleware = (req, res, next) => {
 app.use([AuthorisationMiddleware, ...])
 
 ```
+
+# Body Parser
+
+### Installing the body-parser library
+
+The body parser library is a middleware which will convert the form data to a javascript object without you having to do it.
+
+```bash
+npm install --save-dev body-parser
+```
+
+### Add the urlencoded middleware to express
+
+```javascript
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: true }))
+```
+
+You can now access the form data as a javascript object directly through the `request.body` property.
