@@ -2,7 +2,7 @@
 
 This is a test project which allows for me to learn and document all my finding about how you create express servers.
 
-# Installation
+### Installation
 
 > Install the express package 
 
@@ -10,7 +10,7 @@ This is a test project which allows for me to learn and document all my finding 
 npm install --save-dev express
 ```
 
-# Create a basic server
+### Create a basic server
 
 From what it seems all we have to do is to instantiate an express object.
 
@@ -34,7 +34,7 @@ app.listen(3000)
 
 Then send a curl get request to /home
 
-# Creating Logging Middleware
+### Creating Logging Middleware
 
 Middlware Documentation: [http://expressjs.com/en/guide/writing-middleware.html](http://expressjs.com/en/guide/writing-middleware.html)
 
@@ -83,7 +83,7 @@ user-agent: curl/7.61.0
 accept: */
 ```
 
-# Check Authorisation Header Middleware
+### Check Authorisation Header Middleware
 
 So it can be that some requests require that a access  token of some sort be present within the headers and if it is not present then the user should receive a `401 Unauthorised` statusCode.
 
@@ -104,7 +104,7 @@ app.use([AuthorisationMiddleware, ...])
 
 ```
 
-# Body Parser
+### Body Parser
 
 ### Installing the body-parser library
 
